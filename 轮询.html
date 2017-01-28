@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>unslider演示</title>
+       <script src="../jquery-3.1.0.js"></script>
+       <script src="轮询.js"></script>
+       <style>
+           html, body { font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;}
+           h2 ,div{ text-align : center ;}
+           ul, ol { padding: 0;}
+           .banner { position: relative; overflow: auto; margin:0 auto;}
+
+           .banner li { list-style: none; }
+
+           .banner ul li { float: left; }
+
+
+       </style>
+    </head>
+    <body>
+        <h2>轮询插件实例</h2>
+
+<div><span>在上一步基础上，加上左右箭头。</span></div>
+
+
+
+<style>
+
+#b04 { width: 640px;}
+
+#b04 .dots { position: absolute; left: 0; right: 0; bottom: 20px;}
+
+#b04 .dots li 
+
+{ 
+
+	display: inline-block; 
+
+	width: 10px; 
+
+	height: 10px; 
+
+	margin: 0 4px; 
+
+	text-indent: -999em; 
+
+	border: 2px solid #fff; 
+
+	border-radius: 6px; 
+
+	cursor: pointer; 
+
+	opacity: .4; 
+
+	-webkit-transition: background .5s, opacity .5s; 
+
+	-moz-transition: background .5s, opacity .5s; 
+
+	transition: background .5s, opacity .5s;
+
+}
+
+#b04 .dots li.active 
+
+{
+
+	background: #fff;
+
+	opacity: 1;
+
+}
+
+#b04 .arrow { position: absolute; top: 200px;}
+
+#b04 #al { left: 15px;}
+
+#b04 #ar { right: 15px;}
+
+</style>
+
+
+
+<div class="banner" id="b04">
+
+    <ul>
+
+        <li><img src="01.jpg" alt="" width="640" height="480" ></li>
+
+        <li><img src="02.jpg" alt="" width="640" height="480" ></li>
+
+        <li><img src="03.jpg" alt="" width="640" height="480" ></li>
+
+        <li><img src="04.jpg" alt="" width="640" height="480" ></li>
+
+        <li><img src="05.jpg" alt="" width="640" height="480" ></li>
+
+    </ul>
+
+    <a href="javascript:void(0);" class="unslider-arrow04 prev"><img class="arrow" id="al" src="arrowl.png" alt="prev" width="20" height="35"></a>
+
+    <a href="javascript:void(0);" class="unslider-arrow04 next"><img class="arrow" id="ar" src="arrowr.png" alt="next" width="20" height="37"></a>
+
+</div>
+
+
+
+<script>
+
+$(document).ready(function(e) {
+
+    var unslider04 = $('#b04').unslider({//$实例调用unslider函数并传入参数。
+
+		dots: true
+
+	}),
+
+	data04 = unslider04.data('unslider');  //得到unslider标识的数据对象，即u函数 u函数返回的是里面的this，相当于一个字面量表达式，属性与属性值，函数名与函数一一对应
+
+	
+
+	$('.unslider-arrow04').click(function() {
+
+        var fn = this.className.split(' ')[1];  //将当前元素的名字通过空格分割成一个字符串数组，并取数组第二个，即prev/next
+
+        data04[fn](); //u['prev']()  检索prev/next，并执行该函数
+		
+
+    });
+
+});
+
+</script>
+    </body>
+</html>
